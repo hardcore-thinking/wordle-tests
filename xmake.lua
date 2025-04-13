@@ -17,6 +17,14 @@ target("WordleGame")
 
     set_configdir("$(buildir)/$(plat)/$(arch)/$(mode)/resources")
     add_configfiles("resources/*")
+
+    if is_plat("windows") then
+        set_toolchains("msvc", { vs = "2022" })
+    elseif is_plat("linux") then
+        set_toolchains("gcc", { gcc = "13" })
+    else
+        set_toolchains("clang", { clang = "19" })
+    end
 target_end()
 
 target("WordComparatorTest")
