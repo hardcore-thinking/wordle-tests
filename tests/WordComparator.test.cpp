@@ -3,9 +3,9 @@
 #include <WordComparator.hpp>
 
 // In WordleGame.cpp
-std::ifstream validWordsFile("resources/tests/words.test.txt", std::ios_base::beg);
+std::ifstream validWordsFile("resources/tests/words.test.txt");
 std::ifstream noWordsFile;
-std::ifstream invalidvalidWordsFile("resources/tests/random_file_that_doesnt_exist", std::ios_base::beg);
+std::ifstream invalidvalidWordsFile("resources/tests/random_file_that_doesnt_exist");
 std::string matchingWord = "child";
 
 WordComparator comparator(&validWordsFile, 5);
