@@ -2,11 +2,13 @@
 
 WordleGame::WordleGame() {
 	// opening word list
-	_words.open(WORDS_PATH.data(), std::ios::beg);
+	_words.open(WORDS_PATH.data());
 	if (!_words.is_open()) {
 		throw std::runtime_error(std::format("[ERROR] Failed to open words file at {}", WORDS_PATH));
 	}
 	std::clog << "[INFO] Opened words file at " << WORDS_PATH << std::endl;
+
+	_words.seekg(std::ios_base::beg);
 
 	// counting words in the file
 	std::string word = "";
