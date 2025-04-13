@@ -2,7 +2,7 @@
 
 WordleGame::WordleGame() {
 	// opening word list
-	_words.open(WORDS_PATH.data(), std::ios_base::beg);
+	_words.open(WORDS_PATH.data(), std::ios::beg);
 	if (!_words.is_open()) {
 		throw std::runtime_error(std::format("[ERROR] Failed to open words file at {}", WORDS_PATH));
 	}

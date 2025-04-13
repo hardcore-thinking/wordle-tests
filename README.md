@@ -1,5 +1,17 @@
 # Test exercise - Wordle
 
+## Table of contents
+
++ [Test part](#test-part)
+    + [How to run the project](#how-to-run-the-project)
+    + [Install the dependencies](#install-the-dependencies)
+    + [Run the tests](#run-the-tests)
+    + [Run the actual projects](#run-the-actual-project) 
++ [Coverage part](#coverage-part)
+    + [On Windows](#on-windows)
+    + [On Linux](#on-linux)
+    + [On MacOS](#on-macos)
+
 ## Test part
 
 ### How to run the project
@@ -32,9 +44,26 @@ To take a look at the code coverage, many solutions are available.
 
 ### On Windows
 
-Install [OpenCppCoverage](https://github.com/OpenCppCoverage/OpenCppCoverage/releases/tag/release-0.9.9.0) then run the following command :
+You can use [OpenCppCoverage](https://github.com/OpenCppCoverage/OpenCppCoverage/releases/tag/release-0.9.9.0) to get coverage statistics. Simply run the following command :
+
+```
+opencppcoverage --sources tests -- build\windows\x64\debug\WordleGame.exe
+```
+
+Then look at the results in the resulting directory named like this `CoverageReport-YYYY-MM-DD-HHhMMmSSs` and open `index.html` in your web browser.
+
+### On Linux
+
+You can use either GCC or Clang code coverage solution to get coverage statistics. Simply run the following commands in order :
 
 ```
 
 ```
 
+### On MacOS
+
+You can use Clang code coverage solution to get coverage statistics. Simply run the following commands in order :
+
+```
+
+```
