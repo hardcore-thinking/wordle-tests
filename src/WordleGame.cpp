@@ -98,7 +98,7 @@ void WordleGame::Start() {
 
 		if (!_won) {
 			std::cout << std::endl;
-			std::cout << "You lost! The word was: " << _correctWord << std::endl;
+			std::cout << "You lose! The word was: " << _correctWord << std::endl;
 		}
 
 		_playing = false;
