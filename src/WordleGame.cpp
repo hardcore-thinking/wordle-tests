@@ -4,7 +4,7 @@ WordleGame::WordleGame() {
 	// opening word list
 	_words.open(WORDS_PATH.data());
 	if (!_words.is_open()) {
-		throw std::runtime_error(std::format("[ERROR] Failed to open words file at {}", WORDS_PATH));
+		throw std::runtime_error("[ERROR] Failed to open words file");
 	}
 	std::clog << "[INFO] Opened words file at " << WORDS_PATH << std::endl;
 
