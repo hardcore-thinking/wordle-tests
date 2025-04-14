@@ -22,7 +22,8 @@ target("WordleGame")
         set_toolchains("msvc", { vs = "2022" })
     elseif is_plat("linux") then
         set_toolchains("gcc", { gcc = "13" })
-        add_cxxflags("gcc::--fprofile-arcs", "gcc::-ftest-coverage")
+        add_cxxflags("gcc::--fprofile-arcs", { force = true })
+        add_cxxflags("gcc::-ftest-coverage")
     else
         set_toolchains("xcode", { clang = "19" })
     end
