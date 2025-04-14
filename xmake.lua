@@ -24,6 +24,8 @@ target("WordleGame")
         set_toolchains("gcc", { gcc = "13" })
         add_cxxflags("gcc::-fprofile-arcs", { force = true })
         add_cxxflags("gcc::-ftest-coverage")
+        add_links("gcov")
+        add_links("coverage")
     else
         set_toolchains("xcode", { clang = "19" })
     end
