@@ -8,9 +8,6 @@
     + [Run the tests](#run-the-tests)
     + [Run the actual projects](#run-the-actual-project) 
 + [Coverage part](#coverage-part)
-    + [On Windows](#on-windows)
-    + [On Linux](#on-linux)
-    + [On MacOS](#on-macos)
 
 ## Test part
 
@@ -40,30 +37,10 @@ xmake run
 
 ## Coverage part
 
-To take a look at the code coverage, many solutions are available.
-
-### On Windows
-
-You can use [OpenCppCoverage](https://github.com/OpenCppCoverage/OpenCppCoverage/releases/tag/release-0.9.9.0) to get coverage statistics. Simply run the following command :
+To take a look at the code coverage, you can use [OpenCppCoverage](https://github.com/OpenCppCoverage/OpenCppCoverage/releases/tag/release-0.9.9.0) on Windows (need to be installed) to get coverage statistics. Simply run the following command :
 
 ```
 opencppcoverage --sources tests -- build\windows\x64\debug\WordleGame.exe
 ```
 
 Then look at the results in the resulting directory named like this `CoverageReport-YYYY-MM-DD-HHhMMmSSs` and open `index.html` in your web browser.
-
-### On Linux
-
-You can use either GCC or Clang code coverage solution to get coverage statistics. Simply run the following commands in order :
-
-```
-
-```
-
-### On MacOS
-
-You can use Clang code coverage solution to get coverage statistics. Simply run the following commands in order :
-
-```
-
-```
