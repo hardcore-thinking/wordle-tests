@@ -44,3 +44,17 @@ opencppcoverage --sources tests -- build\windows\x64\debug\WordleGame.exe
 ```
 
 Then look at the results in the resulting directory named like this `CoverageReport-YYYY-MM-DD-HHhMMmSSs` and open `index.html` in your web browser.
+
+**OR**
+
+You can use GCOV to get those statistics. Then use the command as follows :
+
+```
+gcov -rHa ./build/.objs/WordleGame/<your-platform>/<your-architecture>/release/src/*.gcno
+```
+
+For example :
+
+```
+gcov -rHa ./build/.objs/WordleGame/linux/x86_64/release/src/*.gcno
+```
