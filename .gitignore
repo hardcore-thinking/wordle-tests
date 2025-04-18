@@ -38,3 +38,5 @@ vsxmake2022
 LastCoverageResults.log
 CoverageReport*
 *.gcno
+*.cov
+*.gcda
