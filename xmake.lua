@@ -6,6 +6,17 @@ set_warnings("error")
 add_rules("mode.debug", "mode.release")
 add_rules("plugin.vsxmake.autoupdate")
 
+if is_plat("windows") then
+        set_toolchains("msvc", { vs = "2022" })
+    elseif is_plat("linux") then
+        set_toolchains("gcc", { gcc = "13" })
+        add_cxxflags("gcc::-fprofile-arcs", { force = true })
+        add_cxxflags("gcc::-ftest-coverage")
+        add_links("gcov")
+    else
+        set_toolchains("xcode", { clang = "19" })
+end
+
 target("WordleGame")
     set_kind("binary")
 
@@ -17,17 +28,6 @@ target("WordleGame")
 
     set_configdir("$(buildir)/$(plat)/$(arch)/$(mode)/resources")
     add_configfiles("resources/*")
-
-    if is_plat("windows") then
-        set_toolchains("msvc", { vs = "2022" })
-    elseif is_plat("linux") then
-        set_toolchains("gcc", { gcc = "13" })
-        add_cxxflags("gcc::-fprofile-arcs", { force = true })
-        add_cxxflags("gcc::-ftest-coverage")
-        add_links("gcov")
-    else
-        set_toolchains("xcode", { clang = "19" })
-    end
 target_end()
 
 target("WordComparatorTest")
