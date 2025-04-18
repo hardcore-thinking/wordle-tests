@@ -37,10 +37,15 @@ xmake run
 
 ## Coverage part
 
-To take a look at the code coverage, you can use [OpenCppCoverage](https://github.com/OpenCppCoverage/OpenCppCoverage/releases/tag/release-0.9.9.0) on Windows (need to be installed) to get coverage statistics. Simply run the following command (assuming we're in `C:\Users\user\Wordle`) :
+Before doing any coverage check, run the following command to pass in coverage mode with Xmake :
+```
+xmake config -m coverage
+```
+
+Then, to take a look at the code coverage, you can use [OpenCppCoverage](https://github.com/OpenCppCoverage/OpenCppCoverage/releases/tag/release-0.9.9.0) on Windows (need to be installed) to get coverage statistics. Simply run the following command (assuming we're in `C:\Users\user\Wordle`) :
 
 ```
-opencppcoverage --sources C:\Users\user\Wordle -- build\windows\x64\debug\WordleGame.exe
+opencppcoverage --sources 'C:\Users\user\Wordle\include' --sources 'C:\Users\user\Wordle\src' --cover_children -- xmake test -v
 ```
 
 Then look at the results in the resulting directory named like this `CoverageReport-YYYY-MM-DD-HHhMMmSSs` and open `index.html` in your web browser.
