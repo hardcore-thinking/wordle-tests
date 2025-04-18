@@ -6,7 +6,7 @@
     + [How to run the project](#how-to-run-the-project)
     + [Install the dependencies](#install-the-dependencies)
     + [Run the tests](#run-the-tests)
-    + [Run the actual projects](#run-the-actual-project) 
+    + [Run the actual project](#run-the-actual-project) 
 + [Coverage part](#coverage-part)
 
 ## Test part
@@ -37,10 +37,10 @@ xmake run
 
 ## Coverage part
 
-To take a look at the code coverage, you can use [OpenCppCoverage](https://github.com/OpenCppCoverage/OpenCppCoverage/releases/tag/release-0.9.9.0) on Windows (need to be installed) to get coverage statistics. Simply run the following command :
+To take a look at the code coverage, you can use [OpenCppCoverage](https://github.com/OpenCppCoverage/OpenCppCoverage/releases/tag/release-0.9.9.0) on Windows (need to be installed) to get coverage statistics. Simply run the following command (assuming we're in `C:\Users\user\Wordle`) :
 
 ```
-opencppcoverage --sources tests -- build\windows\x64\debug\WordleGame.exe
+opencppcoverage --sources C:\Users\user\Wordle -- build\windows\x64\debug\WordleGame.exe
 ```
 
 Then look at the results in the resulting directory named like this `CoverageReport-YYYY-MM-DD-HHhMMmSSs` and open `index.html` in your web browser.

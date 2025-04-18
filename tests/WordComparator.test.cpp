@@ -3,12 +3,12 @@
 #include <WordComparator.hpp>
 
 // In WordleGame.cpp
-std::ifstream validWordsFile("resources/tests/words.test.txt");
-std::ifstream noWordsFile;
-std::ifstream invalidvalidWordsFile("resources/tests/random_file_that_doesnt_exist");
+std::ifstream comparatorValidWordsFile("resources/tests/words.test.txt");
+std::ifstream comparatorNoWordsFile;
+std::ifstream comparatorInvalidWordsFile("resources/tests/random_file_that_doesnt_exist");
 std::string matchingWord = "child";
 
-WordComparator comparator(&validWordsFile, 5);
+WordComparator comparator(&comparatorValidWordsFile, 5);
 
 TEST_CASE("Should throw std::invalid_argument if the std::ifstream pointer is nullptr", "[comparator_invalid_iftsream_ptr]") {
 	REQUIRE_THROWS_AS(WordComparator(nullptr, 5), std::invalid_argument);
@@ -16,12 +16,12 @@ TEST_CASE("Should throw std::invalid_argument if the std::ifstream pointer is nu
 
 TEST_CASE("Should accept if the object is created with a valid file", "[comparator_closed_ifstream_ptr_file]") {
 	INFO("The file is correctly open");
-	REQUIRE(validWordsFile.is_open());
+	REQUIRE(comparatorValidWordsFile.is_open());
 }
 
 TEST_CASE("Should throw std::invalid_argument if the std::ifstream pointer is not open", "[comparator_closed_ifstream_ptr_file]") {
 	INFO("The file is not open");
-	REQUIRE_THROWS_AS(WordComparator(&noWordsFile, 5), std::invalid_argument);
+	REQUIRE_THROWS_AS(WordComparator(&comparatorNoWordsFile, 5), std::invalid_argument);
 }
 
 TEST_CASE("Should reject words that are not exactly 5 letters long", "[comparator_invalid_word_length]") {

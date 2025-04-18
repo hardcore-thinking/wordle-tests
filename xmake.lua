@@ -3,20 +3,8 @@ add_requires("snitch")
 set_languages("cxx20")
 set_warnings("error")
 
-add_rules("mode.debug", "mode.release")
+add_rules("mode.debug", "mode.release", "mode.coverage")
 add_rules("plugin.vsxmake.autoupdate")
-
-if is_plat("windows") then
-        set_toolchains("msvc", { vs = "2022" })
-    elseif is_plat("linux") then
-        set_toolchains("gcc", { gcc = "13" })
-        add_cxxflags("gcc::-fprofile-arcs", { force = true })
-        add_cxxflags("gcc::-ftest-coverage")
-        add_ldflags("--coverage")
-        add_links("gcov")
-    else
-        set_toolchains("xcode", { clang = "19" })
-end
 
 target("WordleGame")
     set_kind("binary")
@@ -34,7 +22,8 @@ target_end()
 target("WordComparatorTest")
     set_kind("binary")
     set_default(false)
-    
+    add_deps("WordleGame")
+
     add_packages("snitch")
 
     set_runargs("-v", "full", "*")
@@ -53,7 +42,8 @@ target_end()
 target("WordGeneratorTest")
     set_kind("binary")
     set_default(false)
-    
+    add_deps("WordleGame")
+
     add_packages("snitch")
 
     set_runargs("-v", "full", "*")
